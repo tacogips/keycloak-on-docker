@@ -6,17 +6,18 @@ services:
     image: postgres
     restart: always
     volumes:
-      - ./app/dev_resource/auth_db:/var/lib/postgresql/data
+      - ./volume/auth_db:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: db_admin
       POSTGRES_PASSWORD: db_admin
       POSTGRES_DB: auth_database
     ports:
-      - 5432:5432
+      - 15432:5432
 
-  ### ----------------------------------------------------------------
+#  ### ----------------------------------------------------------------
   auth_server:
-    image: quay.io/keycloak/keycloak:latest
+    #image: quay.io/keycloak/keycloak:latest
+    image: keycloak-sandbox:0.1
     depends_on:
       - "auth_db"
     links:
@@ -30,6 +31,7 @@ services:
       DB_USER: db_admin
       DB_PASSWORD: db_admin
       DB_DATABASE: auth_database
+
     ports:
-      - 5014:8080
+      - 6014:8080
 
