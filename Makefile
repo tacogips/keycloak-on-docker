@@ -1,5 +1,9 @@
 KEYCLOAK_VERSION=13.0.1
 
+init-submodule:
+	git submodule init
+	git submodule update
+
 build-keycloak:
 	rm -rf docker/keycloak
 	cd keycloak; mvn -Pdistribution -pl distribution/server-dist -am -Dmaven.test.skip clean install
