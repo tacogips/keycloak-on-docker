@@ -9,6 +9,7 @@ build-keycloak:
 	mv keycloak-${KEYCLOAK_VERSION} keycloak
 
 docker-build:
-	sudo docker build -t keycloak-sandbox:0.1 ./docker
+	sudo docker build -t tacogips/keycloak-sandbox:latest ./docker
 
 build: build-keycloak docker-build
+

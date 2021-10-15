@@ -17,7 +17,7 @@ services:
 #  ### ----------------------------------------------------------------
   auth_server:
     #image: quay.io/keycloak/keycloak:latest
-    image: keycloak-sandbox:0.1
+    image: tacogips/keycloak-sandbox:latest
     depends_on:
       - "auth_db"
     links:

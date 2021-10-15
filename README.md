@@ -3,7 +3,12 @@
 ```
 git submodule init
 git submodule update
+make build
 ```
+
+
+## docker push
+docker push tacogips/keycloak-sandbox:latest
 
 
 ## About Docker image
