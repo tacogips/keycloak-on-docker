@@ -1,4 +1,5 @@
 KEYCLOAK_VERSION=13.0.1
+DOCKER_IMAGE_VER=0.0.2
 
 init-submodule:
 	git submodule init
@@ -13,7 +14,10 @@ build-keycloak:
 	mv keycloak-${KEYCLOAK_VERSION} keycloak
 
 docker-build:
-	sudo docker build -t tacogips/keycloak-sandbox:latest ./docker
+	sudo docker build -t tacogips/keycloak-sandbox:${DOCKER_IMAGE_VER} ./docker
+
+#docker-push:
+#	sudo docker push tacogips/keycloak-sandbox:${DOCKER_IMAGE_VER}
 
 build: build-keycloak docker-build
 
