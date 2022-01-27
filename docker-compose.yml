@@ -17,7 +17,10 @@ services:
 #  ### ----------------------------------------------------------------
   auth_server:
     #image: quay.io/keycloak/keycloak:latest
-    image: tacogips/keycloak-sandbox:latest
+    #image: tacogips/keycloak-sandbox:latest
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
     depends_on:
       - "auth_db"
     links:
@@ -33,5 +36,5 @@ services:
       DB_DATABASE: auth_database
 
     ports:
-      - 6014:8080
+      - 5014:8080
 
